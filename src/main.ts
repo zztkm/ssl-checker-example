@@ -5,8 +5,14 @@ const getSslDetails = async function (hostname: string) {
 	return value
 }
 
-const data = ["maltinerecords.cs8.biz", "chelmico.com", "toka.jp"]
 
-for (const url of data) {
-	getSslDetails(url).then(value => { console.log(value) })
+async function main() {
+	const data = ["maltinerecords.cs8.biz", "chelmico.com", "toka.jp"]
+
+	for (const url of data) {
+		const value = await getSslDetails(url);
+		console.log(value.valid);
+	}
 }
+
+main()
